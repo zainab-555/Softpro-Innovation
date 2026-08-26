@@ -1335,4 +1335,24 @@ body{ font-family:'Inter', sans-serif; background:var(--bg-page); color:var(--in
 .stat-card .deco{ position:absolute; top:-18px; right:-18px; width:90px; height:90px; border-radius:9999px; }
 .nav-link{ position:relative; color:#3d3b36; }
 .nav-link:hover{ color:var(--accent); }
-.side-item{ display:flex; align-items:center; gap:0.65rem; padding:0.6rem 0.9rem; border-radius:0.6rem; color:#B9B7C6; font-size:0.9rem;
+.side-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.6rem;
+  color: #B9B7C6;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+
+.side-item:hover {
+  background: #1F1E2E;
+  color: #fff;
+}
+
+.side-item.active {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
