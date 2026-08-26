@@ -1,6 +1,6 @@
 const express=require('express');
 const Router=express.Router();
-const User=require('../model/User');
+const User = require('../models/User');
 
 
 // Router.post("/User/register", (req,res)=>{

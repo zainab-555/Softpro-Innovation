@@ -7,7 +7,7 @@ import Product from './Product'
 import Registering from './registering'
 import Admin from './components/Admin'
 import RegisterPage from './components/RegisterPage'
-
+import AdminLogin from './components/AdminLogin'
 const App = () => {
   return (
     <>
@@ -19,9 +19,8 @@ const App = () => {
         <Route path='/Product' element={<Product/>}></Route>
         <Route path='/Contact' element={<Contact/>}></Route>
         <Route path='/Registering' element={<Registering/>}></Route>
-        <Route path='/Admin' element={<Admin/>}></Route>
+        <Route path='/adminLogin' element={<AdminLogin/>}></Route>
         </Routes>
-    
       </BrowserRouter>
 
     </>
