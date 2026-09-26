@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "./Header";
-import axios from "axios"  
-import { useNavigate } from "react-router";
+import axios from "axios";
 import { API_BASE_URL } from "../utils/apiConfig";
 export default function RegisterPage() {
   const navigate=useNavigate();
