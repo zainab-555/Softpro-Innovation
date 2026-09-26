@@ -1,3 +1,5 @@
+import logo from "../assets/logo1.png"
+
 const Footer = () => {
   return (
     <footer className="footer-section">
@@ -6,9 +8,7 @@ const Footer = () => {
 
           {/* About */}
           <div className="col-md-3">
-            <h5 className="footer-logo mb-3">
-              Softpro<span className="text-orangered">Innovation</span>
-            </h5>
+            <img src={logo} alt="Softpro" className="footer-logo mb-3" />
             <p className="footer-text">
               Your trusted source for microcontrollers, single-board computers, and electronics components in India.
             </p>
@@ -72,11 +72,11 @@ const Footer = () => {
             </div>
             <div className="footer-contact-item">
               <i className="bi bi-telephone-fill"></i>
-              <p>+91 78301 98385</p>
+              <p>+91 98765 43210</p>
             </div>
             <div className="footer-contact-item">
               <i className="bi bi-envelope-fill"></i>
-              <p>pushkar.softpro@gmail.com</p>
+              <p>zainab.softpro@gmail.com</p>
             </div>
             <div className="footer-contact-item">
               <i className="bi bi-clock-fill"></i>

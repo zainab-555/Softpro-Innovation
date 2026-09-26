@@ -35,7 +35,7 @@ routes.post('/login', async (req, res) => {
         if (data.password == password) {
             const token = jwt.sign({ id: data._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
             return res.json({
-                msg: "Sucess",
+                msg: "Success",
                 token: token,
                 role: "admin",
                 name: data.name,
@@ -60,13 +60,6 @@ routes.get("/show", async (req, res) => {
             res.status(500).json({ message: "Error fetching admin data" });
         }
 });
-
-
-
-
-
-
-
 
 routes.put("/update/:id", async (req, res) => {
         try {

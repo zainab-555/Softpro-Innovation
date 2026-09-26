@@ -43,9 +43,9 @@ const Testimonials = () => {
               <div className="col-md-4" key={t.id}>
                 <div className="testimonial-card">
                   <div className="quote-icon">"</div>
-                  <div className="stars mb-2">
+                  <div className="stars mb-2" style={{ color: "#E05C2A" }}>
                     {Array(t.rating).fill(0).map((_, i) => (
-                      <i className="bi bi-star-fill" key={i}></i>
+                      <i className="bi bi-star-fill me-1" key={i}></i>
                     ))}
                   </div>
                   <p className="testimonial-text">{t.text}</p>

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 export default function ContactPage() {
@@ -8,15 +9,26 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
+  const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // 👉 Yahan apna form submit logic (API call / email service) daal dena
-    console.log(form);
+    setSubmitting(true);
+    setMessage("");
+    try {
+      await axios.post("http://localhost:5000/api/complaint/create", form);
+      setMessage("Your message has been submitted. We will contact you soon.");
+      setForm({ fullName: "", email: "", category: "", subject: "", message: "" });
+    } catch (error) {
+      setMessage(error.response?.data?.message || "Message submit nahi ho paaya.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -199,9 +211,10 @@ export default function ContactPage() {
                     ></textarea>
                   </div>
                   <div className="col-12">
-                    <button type="submit" className="btn-send">
-                      Send Message
+                    <button type="submit" className="btn-send" disabled={submitting}>
+                      {submitting ? "Submitting..." : "Send Message"}
                     </button>
+                    {message && <p>{message}</p>}
                   </div>
                 </div>
               </form>

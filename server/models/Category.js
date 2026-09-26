@@ -3,15 +3,22 @@ const mongoose = require('mongoose');
 const ctSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
-    email: {
+    description: {
         type: String,
-        required: true
+        default: "",
+        trim: true
     },
-    password: {
+    status: {
         type: String,
-        required: true
+        enum: ["active", "inactive"],
+        default: "active"
+    },
+    images: {
+        type: [String],
+        default: []
     }
 }, {
     timestamps: true

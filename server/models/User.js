@@ -15,7 +15,7 @@ const userSchema =new mongoose.Schema({
     },
     mobile: {
         type: String,
-        required: true
+    
     },
     status: {
         type: String,
@@ -23,11 +23,11 @@ const userSchema =new mongoose.Schema({
     },
     picture: {
         type: String,
-        required: true
+    
     },
     gender:{
         type:String,
-        required:true,
+        
     }
 
 });

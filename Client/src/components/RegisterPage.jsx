@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router";
-
+import Header from "./Header";
+import axios from "axios"  
+import { useNavigate } from "react-router";
 export default function RegisterPage() {
+  const navigate=useNavigate();
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -13,12 +16,21 @@ export default function RegisterPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async(e) => {
     e.preventDefault();
-    console.log(form);
+    try {
+      const res = await axios.post("http://localhost:5000/api/user/register", form);
+      console.log(res.data);
+      alert("user is register");
+      navigate("/")
+    } catch (error) {
+      console.error("Registration failed:", error);
+    }
   };
 
   return (
+    <>
+    <Header />
     <div className="register-page">
       <div className="register-card">
         <p className="register-breadcrumb">
@@ -94,5 +106,6 @@ export default function RegisterPage() {
         </p>
       </div>
     </div>
+    </>
   );
 }

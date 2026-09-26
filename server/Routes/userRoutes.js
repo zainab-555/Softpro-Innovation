@@ -9,36 +9,44 @@ const User = require('../models/User');
 
 
 Router.post('/register',async(req,res)=>{
-   
+ 
  try{
-        const {name,email,password,mobile,status,gender,picture}=req.body;
+        const {fullName,email,password}=req.body;
         const a =await User.findOne({email});
         if(a){
             return res.json({message:"User Already Registered"})
         }
         const data=new User({
-            name:name,
+            name:fullName,
             email:email,
-            password:password,  
-            mobile:mobile,
-            status:status,
-            gender:gender,
-            picture:picture
+            password:password 
         });
          await data.save();
-         return res.json({"message":"Email  Registered"});
+         return res.json({"message":"User Register  Registered"});
     }
 
 catch(error){
+
     console.error("User registration error:", error);
-    return res.json({"message":"Email Not Registered", error: error.message}); 
+    return res.json({"message":"Email Not Registered", error: error.message});
+
 }
 
 })
   
 Router.get('/show', async (req, res) => {
     try {
-        const users = await User.find();
+        const { search, status } = req.query;
+        const filter = {};
+        if (status && status !== 'All') filter.status = status;
+        if (search) {
+            filter.$or = [
+                { name: { $regex: search, $options: 'i' } },
+                { email: { $regex: search, $options: 'i' } },
+                { mobile: { $regex: search, $options: 'i' } }
+            ];
+        }
+        const users = await User.find(filter).select('-password').sort({ _id: -1 });
         return res.json(users);
     } catch (error) {
         return res.status(500).json({ message: "Error fetching users" });

@@ -12,7 +12,9 @@ const Hero = () => {
                         <div className="container position-relative">
                             <span className="badge-new">NEW ARRIVAL 2025</span>
                             <h1 className="hero-heading">
-                                Power Your<span className="text-orangered fst-italic"> Next</span> Big Project
+                                Building the <span className="text-orangered fst-italic">Future</span>
+                                <br />
+                                One Kit at a Time
                             </h1>
                             <p className="hero-text">
                                 Explore Raspberry Pi 5, Arduino R4, ESP32-S3 boards and over
@@ -33,7 +35,9 @@ const Hero = () => {
                         <div className="container position-relative">
                             <span className="badge-new">NEW ARRIVAL 2025</span>
                             <h1 className="hero-heading">
-                                Power Your<span className="text-orangered fst-italic"> Next</span> Big Project
+                                Building the <span className="text-orangered fst-italic">Future</span>
+                                <br />
+                                One Kit at a Time
                             </h1>
                             <p className="hero-text">
                                 Explore Raspberry Pi 5, Arduino R4, ESP32-S3 boards and over
@@ -54,7 +58,9 @@ const Hero = () => {
                         <div className="container position-relative">
                             <span className="badge-new">NEW ARRIVAL 2025</span>
                             <h1 className="hero-heading">
-                                Power Your<span className="text-orangered fst-italic"> Next</span> Big Project
+                                Building the <span className="text-orangered fst-italic">Future</span>
+                                <br />
+                                One Kit at a Time
                             </h1>
                             <p className="hero-text">
                                 Explore Raspberry Pi 5, Arduino R4, ESP32-S3 boards and over

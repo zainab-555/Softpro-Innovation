@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom';
+
 const AboutContent = () => {
   return (
     <>
       {/* Mission + Stats */}
-      <section className="mission-section">
+      <section className="mission-section py-5">
         <div className="container">
-          <div className="row align-items-center">
+          <div className="row align-items-center g-5">
             <div className="col-md-7">
               <span className="section-label-light">OUR MISSION</span>
               <h2 className="mission-heading">
@@ -53,7 +55,7 @@ const AboutContent = () => {
       </section>
 
       {/* Core Values */}
-      <section className="values-section">
+      <section className="values-section py-5">
         <div className="container text-center">
           <span className="section-label-light">WHAT WE STAND FOR</span>
           <h2 className="mission-heading">
@@ -70,10 +72,10 @@ const AboutContent = () => {
               { icon: "bi-lightbulb", title: "Continuous Learning", text: "Free project tutorials, wiring guides, and datasheets ship with every order." },
             ].map((v, i) => (
               <div className="col-md-4" key={i}>
-                <div className="value-card">
-                  <div className="value-icon"><i className={`bi ${v.icon}`}></i></div>
-                  <h5>{v.title}</h5>
-                  <p>{v.text}</p>
+                <div className="value-card h-100">
+                  <div className="value-icon text-orangered"><i className={`bi ${v.icon}`}></i></div>
+                  <h5 className="fw-bold text-dark">{v.title}</h5>
+                  <p className="text-muted small mb-0">{v.text}</p>
                 </div>
               </div>
             ))}
@@ -82,7 +84,7 @@ const AboutContent = () => {
       </section>
 
       {/* Journey Timeline */}
-      <section className="journey-section">
+      <section className="journey-section py-5">
         <div className="container text-center">
           <span className="section-label-light">HOW WE GOT HERE</span>
           <h2 className="mission-heading mb-5">
@@ -107,20 +109,24 @@ const AboutContent = () => {
       </section>
 
       {/* CTA */}
-      <section className="about-cta-section text-center">
+      <section className="about-cta-section text-center py-5">
         <div className="container">
           <span className="section-label-light">READY TO BUILD?</span>
           <h2 className="mission-heading mb-4">
             Start your next project with <span className="text-orangered fst-italic">SoftproInnovation</span>
           </h2>
-          <div className="d-flex gap-3 justify-content-center">
-            <button className="btn btn-orangered">Shop Now</button>
-            <button className="btn btn-outline-light-custom">Contact Us</button>
+          <div className="d-flex gap-3 justify-content-center flex-wrap">
+            <Link to="/Product" className="btn btn-orangered px-4 py-2 text-decoration-none">
+              Shop Now
+            </Link>
+            <Link to="/Contact" className="btn btn-outline-light-custom px-4 py-2 text-decoration-none">
+              Contact Us
+            </Link>
           </div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default AboutContent
+export default AboutContent;
