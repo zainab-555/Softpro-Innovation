@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './components/Header'
-import AboutHero from './components/AboutHero'
+import AboutHero from './components/Abouthero'
 import Footer from './components/Footer'
 import AboutContent from './components/AboutContent'
 import RegisterPage from './components/RegisterPage'
