@@ -1,7 +1,8 @@
 import axios from "axios";
 import { getGuestCartId } from "./cart";
+import { API_BASE_URL } from "./apiConfig";
 
-export const WISHLIST_API = "http://localhost:5000/api/wishlist";
+export const WISHLIST_API = `${API_BASE_URL}/api/wishlist`;
 
 export function getWishlistGuestId() {
   return getGuestCartId();

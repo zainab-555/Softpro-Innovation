@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { getImageUrl } from "../../utils/media";
+import { API_BASE_URL } from "../../utils/apiConfig";
 
-const API_BASE = "http://localhost:5000/api/user";
+const API_BASE = `${API_BASE_URL}/api/user`;
 
 export default function AdminUsers() {
   const [users, setUsers] = useState([]);

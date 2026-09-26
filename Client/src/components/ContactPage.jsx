@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { API_BASE_URL } from "../utils/apiConfig";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -21,7 +22,7 @@ export default function ContactPage() {
     setSubmitting(true);
     setMessage("");
     try {
-      await axios.post("http://localhost:5000/api/complaint/create", form);
+      await axios.post(`${API_BASE_URL}/api/complaint/create`, form);
       setMessage("Your message has been submitted. We will contact you soon.");
       setForm({ fullName: "", email: "", category: "", subject: "", message: "" });
     } catch (error) {

@@ -3,14 +3,13 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getImageUrl } from '../utils/media';
 import { getWishlist, toggleWishlist as toggleWishlistApi } from '../utils/wishlist';
-
-
+import { API_BASE_URL } from '../utils/apiConfig';
 
 const FeaturedProducts = () => {
   const [products ,setProducts]  = useState([])
   const handlefetch = async()=>{
     try{
-        const res = await axios.get('http://localhost:5000/api/product/home/active');
+        const res = await axios.get(`${API_BASE_URL}/api/product/home/active`);
         console.log(res.data.data);
         setProducts(res.data.data)
         

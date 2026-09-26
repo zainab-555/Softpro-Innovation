@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { getImageUrl } from "../utils/media";
+import { API_BASE_URL } from "../utils/apiConfig";
 
 const CategoryGrid = () => {
   const [categories, setCategories] = useState([]);
@@ -14,7 +15,7 @@ const CategoryGrid = () => {
         setLoading(true);
         setError("");
         const response = await axios.get(
-          "http://localhost:5000/api/category/show"
+          `${API_BASE_URL}/api/category/show`
         );
       console.log("Category API Response:", response.data.data);
       setCategories(response.data.data);

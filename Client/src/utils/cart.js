@@ -1,6 +1,7 @@
 import axios from "axios";
+import { API_BASE_URL } from "./apiConfig";
 
-export const CART_API = "http://localhost:5000/api/cart";
+export const CART_API = `${API_BASE_URL}/api/cart`;
 
 export function getGuestCartId() {
   let cartId = localStorage.getItem("softpro-cart-id");

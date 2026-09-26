@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { API_BASE_URL } from "../../utils/apiConfig";
 
-const PRODUCT_API = "http://localhost:5000/api/product";
-const CATEGORY_API = "http://localhost:5000/api/category";
+const PRODUCT_API = `${API_BASE_URL}/api/product`;
+const CATEGORY_API = `${API_BASE_URL}/api/category`;
 
 const initialForm = {
   name: "",

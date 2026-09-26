@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../../utils/apiConfig";
 
-const API_BASE = "http://localhost:5000/api/complaint";
+const API_BASE = `${API_BASE_URL}/api/complaint`;
 const statuses = ["All", "open", "in_review", "resolved"];
 
 export default function AdminComplaints() {

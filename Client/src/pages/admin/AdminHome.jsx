@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_BASE_URL } from "../../utils/apiConfig";
 
 // Modern Multi-Bar Analytics Data
 const monthlyBarData = [
@@ -62,10 +63,10 @@ export default function AdminHome() {
     setIsRefreshing(true);
     try {
       const [prodRes, catRes, userRes, ordRes] = await Promise.allSettled([
-        axios.get("http://localhost:5000/api/product/show?limit=1"),
-        axios.get("http://localhost:5000/api/category/show"),
-        axios.get("http://localhost:5000/api/user/show"),
-        axios.get("http://localhost:5000/api/order/show?limit=1"),
+        axios.get(`${API_BASE_URL}/api/product/show?limit=1`),
+        axios.get(`${API_BASE_URL}/api/category/show`),
+        axios.get(`${API_BASE_URL}/api/user/show`),
+        axios.get(`${API_BASE_URL}/api/order/show?limit=1`),
       ]);
 
       setStats((prev) =>

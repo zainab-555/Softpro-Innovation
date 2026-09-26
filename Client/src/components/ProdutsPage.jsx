@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../utils/apiConfig";
 import img11 from "../assets/11.png";
 import img12 from "../assets/12.png";
 import img13 from "../assets/13.png";
@@ -250,7 +251,7 @@ export default function ProductsPage() {
   const [pincodeStatus, setPincodeStatus] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/product/show?limit=100")
+    axios.get(`${API_BASE_URL}/api/product/show?limit=100`)
       .then(({ data }) => {
         const importedProducts = (data.data || []).map((product) => ({
           ...product,

@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { API_BASE_URL } from "../utils/apiConfig";
 
-const API_URL = "http://localhost:5000/api/category";
+const API_URL = `${API_BASE_URL}/api/category`;
 
 
 export default function Category() {
@@ -16,8 +17,8 @@ export default function Category() {
   const getImageUrl = (image) => {
     if (!image) return "";
     if (image.startsWith("http://") || image.startsWith("https://")) return image;
-    if (image.startsWith("/uploads/")) return `http://localhost:5000${image}`;
-    return `http://localhost:5000/uploads/categories/${image}`;
+    if (image.startsWith("/uploads/")) return `${API_BASE_URL}${image}`;
+    return `${API_BASE_URL}/uploads/categories/${image}`;
   };
 
   const loadCategories = async () => {

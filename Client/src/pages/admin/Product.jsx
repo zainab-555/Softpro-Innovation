@@ -2,8 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getImageUrl } from "../../utils/media";
+import { API_BASE_URL } from "../../utils/apiConfig";
 
-const PRODUCT_API = "http://localhost:5000/api/product";
+const PRODUCT_API = `${API_BASE_URL}/api/product`;
 
 const defaultProducts = [
   { _id: "prod_1", name: "7-Segment Displays", category_id: { name: "Displays" }, price: 2300, stock_quantity: 120, stock_status: "in_stock", status: "active" },

@@ -2,8 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getImageUrl } from "../../utils/media";
+import { API_BASE_URL } from "../../utils/apiConfig";
 
-const API_BASE = "http://localhost:5000/api/product";
+const API_BASE = `${API_BASE_URL}/api/product`;
 
 export default function AdminInventory() {
   const [items, setItems] = useState([]);

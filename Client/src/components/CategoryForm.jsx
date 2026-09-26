@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { API_BASE_URL } from "../utils/apiConfig";
 
-const API_URL = "http://localhost:5000/api/category";
+const API_URL = `${API_BASE_URL}/api/category`;
 const emptyForm = { name: "", description: "", status: "active", images: [] };
 
 export default function CategoryForm() {
@@ -197,7 +198,7 @@ export default function CategoryForm() {
                     {existingImages.map((image, index) => (
                       <img
                         key={`${image}-${index}`}
-                        src={image.startsWith("http") ? image : `http://localhost:5000/uploads/categories/${image}`}
+                        src={image.startsWith("http") ? image : `${API_BASE_URL}/uploads/categories/${image}`}
                         alt="Current category"
                         style={{ width: "70px", height: "70px", objectFit: "cover", borderRadius: "10px", border: "1px solid rgba(148,163,184,0.25)" }}
                       />

@@ -1,4 +1,6 @@
-export const API_ORIGIN = "http://localhost:5000";
+import { API_BASE_URL } from "./apiConfig";
+
+export const API_ORIGIN = API_BASE_URL;
 
 export const getImageUrl = (image, folder = "products") => {
   if (!image) return "";

@@ -23,6 +23,11 @@ app.use('/api/complaint', require('./Routes/complaintRoutes'));
 app.use('/api/cart', require('./Routes/cartRoutes'));
 app.use('/api/wishlist', require('./Routes/wishlistRoutes'));
 app.use('/api/payment', require('./Routes/paymentRoutes'));
-app.listen(process.env.PORT || 5000, () => {
-    console.log(`Server is running on port ${process.env.PORT || 5000}`);
-});
+const PORT = process.env.PORT || 5000;
+if (process.env.NODE_ENV !== "test") {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}
+
+module.exports = app;

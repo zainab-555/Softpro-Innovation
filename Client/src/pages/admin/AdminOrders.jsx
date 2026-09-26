@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { getImageUrl } from "../../utils/media";
+import { API_BASE_URL } from "../../utils/apiConfig";
 
-const API_BASE = "http://localhost:5000/api/order";
+const API_BASE = `${API_BASE_URL}/api/order`;
 
 export default function AdminOrders() {
   const [orders, setOrders] = useState([]);

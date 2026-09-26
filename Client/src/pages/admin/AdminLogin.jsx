@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Header from '../../components/Header'
+import { API_BASE_URL } from '../../utils/apiConfig'
 
 const AdminLogin = () => {
     const navigate = useNavigate();
@@ -25,7 +26,7 @@ const AdminLogin = () => {
         try {
             e.preventDefault();
 
-            const res = await axios.post("http://localhost:5000/api/admin/login", data);
+            const res = await axios.post(`${API_BASE_URL}/api/admin/login`, data);
             console.log("Login response:", res.data);
 
             if (res.data.msg === "Success") {

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getCart, clearCart } from "../utils/cart";
+import { API_BASE_URL } from "../utils/apiConfig";
 
 export default function Checkout() {
   const [items, setItems] = useState([]);
@@ -42,7 +43,7 @@ export default function Checkout() {
 
     try {
       // 1. Backend se Razorpay Order ID mangwayein
-      const orderResponse = await axios.post("http://localhost:5000/api/payment/create-order", {
+      const orderResponse = await axios.post(`${API_BASE_URL}/api/payment/create-order`, {
         amount: totalAmount
       });
 
@@ -65,7 +66,7 @@ export default function Checkout() {
           try {
             setSubmitting(true);
             // 3. Backend par payment signature verify karein
-            const verifyResponse = await axios.post("http://localhost:5000/api/payment/verify", {
+            const verifyResponse = await axios.post(`${API_BASE_URL}/api/payment/verify`, {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
@@ -138,7 +139,7 @@ export default function Checkout() {
   // COD Payment Flow
   const handleCodPayment = async () => {
     try {
-      await axios.post("http://localhost:5000/api/order/create", {
+      await axios.post(`${API_BASE_URL}/api/order/create`, {
         customer: {
           name: form.name,
           email: form.email,
