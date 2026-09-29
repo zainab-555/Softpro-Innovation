@@ -19,8 +19,7 @@ dist/
 build/
 
 # Uploads
-server/uploads/*
-!server/uploads/.gitkeep
+
 
 # OS / Editor
 .DS_Store
